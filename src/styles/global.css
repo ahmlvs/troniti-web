@@ -16,6 +16,7 @@
   /* states */
   --color-warning: #f59e0b;     /* amber-500 — attention / low runway */
   --color-negative: #9f1239;    /* muted red — genuine failure */
+  --color-live: #22c55e;        /* green-500 — system "live" status only (not P&L) */
 
   /* type */
   --font-sans: "Inter", system-ui, sans-serif;
