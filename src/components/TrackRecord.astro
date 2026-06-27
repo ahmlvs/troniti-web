@@ -1,0 +1,55 @@
+---
+const rows = [
+  { label: "Status", value: "Live on TRON mainnet", live: true },
+  { label: "Method", value: "Non-custodial restricted permission (5 ops, on-chain verifiable)" },
+  { label: "Yield model", value: "~15% combined (voting ~3.3% + energy ~11.9%)" },
+];
+
+const proofTx = "5091276e7f6da12426c92dbde2573998fbafec9d28297f434103b333172a9d26";
+---
+
+<section class="border-t border-border px-6 py-20 sm:py-24">
+  <div class="mx-auto max-w-5xl">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Track record</h2>
+      <p class="mt-4 text-lg text-text-muted">
+        Live on mainnet — verify every number on-chain. The method is the proof.
+      </p>
+    </div>
+
+    <div class="mx-auto mt-14 max-w-3xl overflow-hidden rounded-xl border border-border bg-bg-card">
+      {
+        rows.map((r) => (
+          <div class="flex flex-col gap-1 border-b border-border px-6 py-4 sm:flex-row sm:items-center sm:gap-6">
+            <div class="w-32 shrink-0 text-sm text-text-muted">{r.label}</div>
+            <div class="flex items-center gap-2 text-sm">
+              {r.live && (
+                <span class="inline-flex items-center gap-1.5 rounded-full border border-accent/40 px-2 py-0.5 text-xs text-accent">
+                  <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
+                  live
+                </span>
+              )}
+              <span>{r.value}</span>
+            </div>
+          </div>
+        ))
+      }
+      <div class="flex flex-col gap-1 px-6 py-4 sm:flex-row sm:gap-6">
+        <div class="w-32 shrink-0 text-sm text-text-muted">Proof (sample)</div>
+        <a
+          href={`https://tronscan.org/#/transaction/${proofTx}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mono truncate text-sm text-accent transition-colors hover:text-accent-hover"
+          title={proofTx}
+        >
+          {proofTx}
+        </a>
+      </div>
+    </div>
+    <p class="mt-4 text-center text-xs text-text-muted">
+      Energy-rental payout to client wallet — TronEnergize order #47375. Absolute sums are
+      small while we onboard; the method is what scales.
+    </p>
+  </div>
+</section>

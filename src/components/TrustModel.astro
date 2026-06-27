@@ -1,0 +1,92 @@
+---
+const canDo = [
+  { op: "FreezeBalanceV2", label: "Stake TRX" },
+  { op: "VoteWitness", label: "Vote for super representatives" },
+  { op: "WithdrawBalance", label: "Claim voting rewards" },
+  { op: "DelegateResource", label: "Rent out idle energy" },
+  { op: "UnDelegateResource", label: "Reclaim rented energy" },
+];
+
+const cannotDo = [
+  { op: "Transfer / TransferAsset", label: "Move TRX or tokens out" },
+  { op: "UnfreezeBalanceV2", label: "Unstake your principal" },
+  { op: "AccountPermissionUpdate", label: "Change who controls the account" },
+];
+---
+
+<section id="trust" class="border-t border-border px-6 py-20 sm:py-24">
+  <div class="mx-auto max-w-5xl">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">You stay in control</h2>
+      <p class="mt-4 text-lg text-text-muted">
+        troniti operates your stake but can never move it. The permission is on-chain,
+        inspectable, and revocable in seconds — threshold 1, one key, weight 1: a strictly
+        smaller op set than a full account.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-6 md:grid-cols-2">
+      <!-- CAN DO -->
+      <div class="rounded-xl border border-border bg-bg-card p-6">
+        <h3 class="flex items-center gap-2 text-sm font-semibold tracking-wide text-text-muted uppercase">
+          <span class="text-accent">The 5 things we can do</span>
+        </h3>
+        <ul class="mt-5 space-y-3">
+          {
+            canDo.map((r) => (
+              <li class="flex items-start gap-3">
+                <svg class="mt-0.5 h-5 w-5 shrink-0 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4l3.8 3.79 6.8-6.8a1 1 0 0 1 1.4 0Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <div>
+                  <span class="text-text">{r.label}</span>
+                  <span class="mono ml-2 text-xs text-text-muted">{r.op}</span>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- CANNOT DO -->
+      <div class="rounded-xl border border-border bg-bg-card p-6">
+        <h3 class="flex items-center gap-2 text-sm font-semibold tracking-wide text-text-muted uppercase">
+          The things we can never do
+        </h3>
+        <ul class="mt-5 space-y-3">
+          {
+            cannotDo.map((r) => (
+              <li class="flex items-start gap-3">
+                <svg class="mt-0.5 h-5 w-5 shrink-0 text-text-muted/60" viewBox="0 0 20 20" fill="currentColor">
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM8.7 7.3a1 1 0 0 0-1.4 1.4L8.6 10l-1.3 1.3a1 1 0 1 0 1.4 1.4L10 11.4l1.3 1.3a1 1 0 0 0 1.4-1.4L11.4 10l1.3-1.3a1 1 0 0 0-1.4-1.4L10 8.6 8.7 7.3Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <div>
+                  <span class="text-text">{r.label}</span>
+                  <span class="mono ml-2 text-xs text-text-muted">{r.op}</span>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+        <p class="mt-6 rounded-lg border border-border bg-bg/40 p-4 text-sm text-text-muted">
+          The funds never leave your wallet. Rental income and rewards land
+          <span class="text-text"> in your wallet</span>. Revoke anytime by removing the
+          permission in any TRON wallet.
+        </p>
+      </div>
+    </div>
+
+    <p class="mt-8 text-center text-sm text-text-muted">
+      <span class="mr-2 inline-flex h-2 w-2 rounded-full bg-accent align-middle"></span>
+      On-chain verifiable · revocable anytime
+    </p>
+  </div>
+</section>

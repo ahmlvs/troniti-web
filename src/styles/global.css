@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  /* base — dark neutral (zinc) */
+  --color-bg: #09090b;          /* zinc-950 — page background */
+  --color-bg-card: #18181b;     /* zinc-900 — cards / panels */
+  --color-bg-elevated: #1f1f23; /* slightly raised surface */
+  --color-border: #27272a;      /* zinc-800 — 1px card borders */
+  --color-text: #f4f4f5;        /* zinc-100 */
+  --color-text-muted: #a1a1aa;  /* zinc-400 */
+
+  /* brand — red = identity, used sparingly (never danger) */
+  --color-accent: #b91c3c;      /* deep garnet crimson — refined, not neon */
+  --color-accent-hover: #d12d4e;
+
+  /* states */
+  --color-warning: #f59e0b;     /* amber-500 — attention / low runway */
+  --color-negative: #9f1239;    /* muted red — genuine failure */
+
+  /* type */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* mono numerals — addresses, txids, figures */
+.mono {
+  font-family: var(--font-mono);
+  font-feature-settings: "tnum" 1;
+}
+
+html {
+  scroll-behavior: smooth;
+}

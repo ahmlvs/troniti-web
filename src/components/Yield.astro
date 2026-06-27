@@ -1,0 +1,40 @@
+---
+const parts = [
+  { label: "Voting rewards", value: "~3.3%", note: "Claimed and restaked continuously" },
+  { label: "Energy rental", value: "~11.9%", note: "The engine — ~4/5 of the value", accent: true },
+];
+---
+
+<section class="border-t border-border px-6 py-20 sm:py-24">
+  <div class="mx-auto max-w-5xl">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">~15% TRX yield, combined</h2>
+      <p class="mt-4 text-lg text-text-muted">
+        Voting rewards plus energy rental — the part almost nobody optimizes. We do. Figures
+        describe the model, live on mainnet — not a guarantee.
+      </p>
+    </div>
+
+    <div class="mt-14 grid items-stretch gap-6 md:grid-cols-3">
+      {
+        parts.map((p) => (
+          <div
+            class:list={[
+              "rounded-xl border bg-bg-card p-6",
+              p.accent ? "border-accent/40" : "border-border",
+            ]}
+          >
+            <div class="mono text-4xl font-bold tracking-tight">{p.value}</div>
+            <div class="mt-3 font-medium">{p.label}</div>
+            <div class="mt-1 text-sm text-text-muted">{p.note}</div>
+          </div>
+        ))
+      }
+      <div class="flex flex-col justify-center rounded-xl border border-border bg-bg/40 p-6">
+        <div class="mono text-4xl font-bold tracking-tight text-accent">~15%</div>
+        <div class="mt-3 font-medium">Combined</div>
+        <div class="mt-1 text-sm text-text-muted">vs ~3% from voting alone</div>
+      </div>
+    </div>
+  </div>
+</section>
