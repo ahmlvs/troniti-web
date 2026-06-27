@@ -1,0 +1,28 @@
+---
+interface Props {
+  size?: "sm" | "md" | "lg";
+  href?: string;
+  class?: string;
+}
+
+const { size = "md", href = "/", class: className = "" } = Astro.props;
+
+const mark = { sm: "h-6 w-6", md: "h-8 w-8", lg: "h-11 w-11" };
+const text = { sm: "text-lg", md: "text-xl", lg: "text-2xl" };
+---
+
+<a
+  href={href}
+  class={`inline-flex items-center gap-2 font-semibold tracking-tight ${text[size]} ${className}`}
+>
+  <svg viewBox="0 0 100 100" class={mark[size]} fill="none" aria-hidden="true">
+    <!-- troniti mark — tilted orbit: fixed garnet core, two orbiting bodies (white + red) -->
+    <g transform="rotate(-20 50 50)">
+      <ellipse cx="50" cy="50" rx="34" ry="16" fill="none" stroke="#52525b" stroke-width="5" />
+      <circle cx="50" cy="50" r="8.5" fill="#b91c3c" />
+      <circle cx="84" cy="50" r="6" fill="#f4f4f5" />
+      <circle cx="16" cy="50" r="6" fill="#d12d4e" />
+    </g>
+  </svg>
+  troniti
+</a>

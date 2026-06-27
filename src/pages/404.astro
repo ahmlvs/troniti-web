@@ -1,13 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Logo from "../components/Logo.astro";
 ---
 
 <BaseLayout title="404 — troniti">
   <section class="flex min-h-screen flex-col items-center justify-center px-6 text-center">
-    <a href="/" class="mb-12 flex items-center gap-2 text-2xl font-semibold tracking-tight">
-      <span class="inline-block h-2.5 w-2.5 rounded-full bg-accent"></span>
-      troniti
-    </a>
+    <Logo size="lg" class="mb-12" />
     <h1 class="mono text-6xl font-bold text-accent sm:text-8xl">404</h1>
     <p class="mt-4 text-lg text-text-muted">Page not found</p>
     <a

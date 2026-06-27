@@ -1,14 +1,13 @@
 ---
+import Logo from "./Logo.astro";
+
 const year = new Date().getFullYear();
 const proofTx = "5091276e7f6da12426c92dbde2573998fbafec9d28297f434103b333172a9d26";
 ---
 
 <footer class="border-t border-border px-6 py-14">
   <div class="mx-auto flex max-w-5xl flex-col items-center gap-6 text-center">
-    <a href="/" class="flex items-center gap-2 font-semibold tracking-tight">
-      <span class="inline-block h-2 w-2 rounded-full bg-accent"></span>
-      troniti
-    </a>
+    <Logo size="sm" />
 
     <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-text-muted">
       <a href="#how" class="transition-colors hover:text-text">How it works</a>

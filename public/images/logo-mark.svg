@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" fill="none">
+  <!-- troniti mark — tilted orbit: fixed garnet core, two orbiting bodies (white + red) -->
+  <g transform="rotate(-20 50 50)">
+    <ellipse cx="50" cy="50" rx="34" ry="16" fill="none" stroke="#52525b" stroke-width="5"/>
+    <circle cx="50" cy="50" r="8.5" fill="#b91c3c"/>
+    <circle cx="84" cy="50" r="6" fill="#f4f4f5"/>
+    <circle cx="16" cy="50" r="6" fill="#d12d4e"/>
+  </g>
+</svg>
