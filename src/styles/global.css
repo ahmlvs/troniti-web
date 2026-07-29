@@ -1,21 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  /* base — dark neutral (zinc) */
-  --color-bg: #09090b;          /* zinc-950 — page background */
+  /* The terminal system — tokens extracted from the X/CMC reference set; the single source
+     of truth is design/brand.md (mirror any change there AND in the cabinet's theme). */
+
+  /* base — ink + dark neutral (zinc) */
+  --color-bg: #0d0f14;          /* ink — page + terminal background (brand.md) */
   --color-bg-card: #18181b;     /* zinc-900 — cards / panels */
   --color-bg-elevated: #1f1f23; /* slightly raised surface */
+  --color-bg-brand-soft: #241c14; /* warm brand-tinted panel fill — sparingly */
   --color-border: #27272a;      /* zinc-800 — 1px card borders */
+  --color-ink: #0d0f14;         /* = bg; named for text ON brand fills (never white there) */
   --color-text: #f4f4f5;        /* zinc-100 */
   --color-text-muted: #a1a1aa;  /* zinc-400 */
 
-  /* brand — red = identity, used sparingly (never danger) */
-  --color-accent: #b91c3c;      /* deep garnet crimson — refined, not neon */
-  --color-accent-hover: #d12d4e;
+  /* brand — warm orange = identity (never a state); on-brand text is ink, never white */
+  --color-accent: #f7941d;
+  --color-accent-hover: #f9a63f;
 
-  /* states */
-  --color-warning: #f59e0b;     /* amber-500 — attention / low runway */
-  --color-negative: #9f1239;    /* muted red — genuine failure */
+  /* states — red is danger ONLY now (freed from brand duty) */
+  --color-warning: #facc15;     /* yellow-400 — attention / low runway (amber reads as brand) */
+  --color-negative: #ef4444;    /* red-500 — genuine failure / CANNOT */
   --color-live: #22c55e;        /* green-500 — system "live" status only (not P&L) */
 
   /* type */
