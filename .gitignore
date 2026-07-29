@@ -30,5 +30,8 @@ pnpm-debug.log*
 # vscode setting folder
 .vscode/
 
-# design scratch (logo concepts, previews)
-design/
+# design scratch (logo concepts, previews) stays local — but the brand SYSTEM is canonical
+# and versioned: brand.md (tokens/semantics) + brand/ (the reference set it's extracted from).
+design/*
+!design/brand.md
+!design/brand/
