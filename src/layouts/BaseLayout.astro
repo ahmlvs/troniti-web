@@ -10,8 +10,28 @@ const isProd = import.meta.env.PROD;
 
 const {
   title,
-  description = "troniti maximizes the yield on your staked TRX — claiming, restaking, voting, and renting out energy — through an on-chain permission that can never move your funds. Non-custodial.",
+  description = "Non-custodial TRON yield: troniti claims, restakes, votes and rents out energy on staked TRX — through an on-chain permission that can never move your funds.",
 } = Astro.props;
+
+// Entity layer: disambiguates "troniti" from the tronity/tronit name-collision
+// cluster in Google's graph (docs/web/seo-marketing.md §1 in the main repo).
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "troniti",
+  url: "https://troniti.com",
+  logo: "https://troniti.com/images/logo-mark.svg",
+  description:
+    "Non-custodial TRON yield management: staking, voting rewards, and energy rental through a restricted on-chain permission that can never move client funds.",
+  sameAs: ["https://x.com/ahmlvs", "https://github.com/ahmlvs/troniti-web"],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "troniti",
+  url: "https://troniti.com",
+};
 ---
 
 <!doctype html>
@@ -26,8 +46,11 @@ const {
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="troniti" />
     <meta property="og:url" content={`https://troniti.com${Astro.url.pathname}`} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ahmlvs" />
+    <meta name="twitter:creator" content="@ahmlvs" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="https://troniti.com/images/og-image.png" />
@@ -38,6 +61,8 @@ const {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet" />
     <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
     {isProd && (
       <!-- Google Analytics (troniti.com) -->
       <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-0WNNZYSDS3"></script>

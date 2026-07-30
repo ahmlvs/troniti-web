@@ -25,7 +25,19 @@ const faqs = [
     a: "No hard minimum for now — connect your wallet in the app and the dashboard shows your numbers.",
   },
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
 ---
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
 <section id="faq" class="border-t border-border px-6 py-20 sm:py-24">
   <div class="mx-auto max-w-3xl">
