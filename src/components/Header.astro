@@ -1,5 +1,6 @@
 ---
 import Logo from "./Logo.astro";
+import { APP_URL } from "../config";
 ---
 
 <header class="sticky top-0 z-50 border-b border-border/60 bg-bg/80 backdrop-blur-md">
@@ -10,7 +11,7 @@ import Logo from "./Logo.astro";
       <a href="#trust" class="hidden transition-colors hover:text-text sm:inline">Trust model</a>
       <a href="#faq" class="hidden transition-colors hover:text-text sm:inline">FAQ</a>
       <a
-        href="https://app.troniti.com"
+        href={APP_URL}
         class="rounded-lg bg-accent px-4 py-2 font-semibold text-ink transition-colors hover:bg-accent-hover"
       >
         Open app
