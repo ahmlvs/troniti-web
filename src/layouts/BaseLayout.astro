@@ -61,8 +61,8 @@ const websiteSchema = {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet" />
     <title>{title}</title>
-    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
     {isProd && (
       <!-- Google Analytics (troniti.com) -->
       <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-0WNNZYSDS3"></script>
@@ -73,6 +73,14 @@ const websiteSchema = {
         gtag('config', 'G-0WNNZYSDS3');
       </script>
     )}
+    <script is:inline>
+      // open_app — the landing's one key event: any CTA carrying data-open-app.
+      // No-op when gtag is absent (dev builds).
+      document.addEventListener("click", (e) => {
+        const a = e.target && e.target.closest && e.target.closest("a[data-open-app]");
+        if (a && window.gtag) gtag("event", "open_app", { cta_location: a.dataset.openApp });
+      });
+    </script>
   </head>
   <body class="min-h-screen antialiased">
     <slot />
