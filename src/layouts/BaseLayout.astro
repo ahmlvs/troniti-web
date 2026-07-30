@@ -2,6 +2,8 @@
 import "@fontsource-variable/inter";
 import "@fontsource-variable/jetbrains-mono";
 import "../styles/global.css";
+import interLatinUrl from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
+import monoLatinUrl from "@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2?url";
 
 interface Props {
   title: string;
@@ -58,6 +60,8 @@ const websiteSchema = {
     <meta name="twitter:image" content="https://troniti.com/images/og-image.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
+    <link rel="preload" as="font" type="font/woff2" href={interLatinUrl} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={monoLatinUrl} crossorigin />
     <link rel="canonical" href={`https://troniti.com${Astro.url.pathname}`} />
     <title>{title}</title>
     <script is:inline type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
