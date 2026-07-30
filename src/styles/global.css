@@ -23,9 +23,9 @@
   --color-negative: #ef4444;    /* red-500 — genuine failure / CANNOT */
   --color-live: #22c55e;        /* green-500 — system "live" status only (not P&L) */
 
-  /* type */
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+  /* type — self-hosted via @fontsource-variable (family names carry the "Variable" suffix) */
+  --font-sans: "Inter Variable", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular", monospace;
 }
 
 body {
