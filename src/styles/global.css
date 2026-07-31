@@ -45,3 +45,8 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* anchor jumps must clear the sticky header */
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
