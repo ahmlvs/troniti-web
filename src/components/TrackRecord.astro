@@ -4,8 +4,14 @@
 // Tile 1: a real on-chain artifact (energy DELEGATION — the payout txid pair
 // gets added when Andrejs pulls it from the DB). Tile 2: build-in-public.
 // Tile 3: the honest timeline — the strategy is a year old, the engine newer.
-const proofTx = "5091276e7f6da12426c92dbde2573998fbafec9d28297f434103b333172a9d26";
-const txShort = `${proofTx.slice(0, 6)}…${proofTx.slice(-4)}`;
+// One real deal, end to end (TronSave order 6a52712d8bffe3b221913e43):
+// the delegation and the payout it earned (9,152,367 SUN).
+const deal = {
+  delegationTx: "a0cab4f26638b71133c4520b91cf170f945d65183d06d1098127b00559b6a421",
+  payoutTx: "35b511ac4acc0d2363913a5d0c0aab8d5c8f09f86a7e4dea028c7990f740673e",
+  payout: "+9.15 TRX",
+};
+const short = (tx: string) => `${tx.slice(0, 6)}…${tx.slice(-4)}`;
 
 const timeline = [
   { label: "strategy, run by hand", date: "Jun 2025" },
@@ -31,21 +37,33 @@ const timeline = [
     </div>
 
     <div class="mt-14 grid gap-6 md:grid-cols-3">
-      <!-- on-chain artifact -->
+      <!-- on-chain artifact: one deal, end to end -->
       <div class="rounded-xl border border-border bg-bg-card p-6">
         <div class="mono text-xs tracking-wide text-text-muted">on-chain proof</div>
         <p class="mt-3 text-sm leading-relaxed text-text-soft">
-          A real energy delegation from the engine — order #47375 on TronEnergize.
+          One real TronSave deal, end to end — energy delegated, payout landed in the
+          client's wallet.
         </p>
-        <a
-          href={`https://tronscan.org/#/transaction/${proofTx}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="mono mt-4 inline-block text-sm text-accent transition-colors hover:text-accent-hover"
-          title={proofTx}
-        >
-          {txShort} ↗
-        </a>
+        <div class="mt-4 flex flex-col gap-1.5">
+          <a
+            href={`https://tronscan.org/#/transaction/${deal.delegationTx}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mono text-sm text-accent transition-colors hover:text-accent-hover"
+            title={deal.delegationTx}
+          >
+            delegation · {short(deal.delegationTx)} ↗
+          </a>
+          <a
+            href={`https://tronscan.org/#/transaction/${deal.payoutTx}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mono text-sm text-accent transition-colors hover:text-accent-hover"
+            title={deal.payoutTx}
+          >
+            payout {deal.payout} · {short(deal.payoutTx)} ↗
+          </a>
+        </div>
       </div>
 
       <!-- build in public -->
