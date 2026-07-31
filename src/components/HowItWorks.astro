@@ -1,4 +1,6 @@
 ---
+import { APP_URL } from "../config";
+
 // Screen 4 of the question ladder: "what do I actually do?" Three steps, one
 // line each — the USER's actions only (the operator's daily work is screen 6).
 // Step order mirrors the real app flow behind the Connect-wallet CTA.
@@ -40,5 +42,16 @@ const steps = [
         ))
       }
     </ol>
+
+    <!-- mid-page beat: same single action for whoever is already convinced -->
+    <div class="mt-12 text-center">
+      <a
+        href={APP_URL}
+        data-open-app="how"
+        class="inline-block rounded-lg bg-accent px-6 py-3 font-semibold text-ink transition-colors hover:bg-accent-hover"
+      >
+        Connect wallet
+      </a>
+    </div>
   </div>
 </section>
