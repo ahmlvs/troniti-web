@@ -1,28 +1,35 @@
 ---
+// Screen 9 of the question ladder: the practical tail. The big questions are
+// answered by the page above (custody → trust screen, incl. the hacked-server
+// worst case; yield → screen 3; cost → the ledger) — no duplicates here.
 const faqs = [
   {
     q: "Is this custodial?",
-    a: "No. You keep your keys; we hold a restricted on-chain permission, not your funds.",
+    a: "No. Your TRX never leaves your wallet — troniti holds a restricted on-chain permission (five operations, no transfers), not your funds.",
   },
   {
-    q: "Can troniti move or unstake my TRX?",
-    a: "No — the permission has no Transfer or Unfreeze rights. It can only stake, vote, claim, and delegate/undelegate energy. Verify it on-chain.",
+    q: "Is there a minimum?",
+    a: "No hard minimum for now — connect your wallet and the dashboard shows your numbers. Energy markets reward scale, so bigger stakes earn closer to the model rate.",
+  },
+  {
+    q: "Is my TRX locked up?",
+    a: "Not by troniti — no lockup, no notice period. TRON's own rules still apply: unstaking waits the protocol's 14-day window, and energy already rented out stays delegated for its term (days, capped at 30 by the protocol).",
   },
   {
     q: "How do I stop?",
-    a: "Remove the permission in any TRON wallet, anytime. No notice, no lockup.",
+    a: "Remove the permission in any TRON wallet, anytime. From that second we can't touch the account.",
   },
   {
-    q: "What if troniti's server is hacked?",
-    a: "Your TRX still can't move — the permission has no Transfer or Unfreeze rights, and TRON consensus caps any delegation lock at 30 days. Worst case, an attacker delays part of your resource yield for up to a month; your principal is untouchable. You revoke the permission with your own key at any moment, and daily monitoring flags any delegation troniti didn't make.",
+    q: "What if troniti disappears?",
+    a: "Nothing happens to your funds. The stake sits in your wallet under your keys — it just goes back to earning plain voting rewards until you revoke the permission or take over. Delegations expire on their own.",
+  },
+  {
+    q: "How does the fee get paid?",
+    a: "From a small prepaid credit you top up — 2%/yr accrues daily on managed capital and draws it down. If the credit hits zero, we simply stop operating; your wallet is untouched.",
   },
   {
     q: "Which chain?",
     a: "TRON (Stake 2.0).",
-  },
-  {
-    q: "Is there a minimum?",
-    a: "No hard minimum for now — connect your wallet in the app and the dashboard shows your numbers.",
   },
 ];
 
