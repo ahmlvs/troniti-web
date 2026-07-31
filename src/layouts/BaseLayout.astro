@@ -14,7 +14,7 @@ const isProd = import.meta.env.PROD;
 
 const {
   title,
-  description = "Non-custodial TRON yield: troniti claims, restakes, votes and rents out energy on staked TRX — through an on-chain permission that can never move your funds.",
+  description = "Non-custodial TRON yield: staking, voting rewards & energy rental in your own wallet — via an on-chain permission that can never move your funds.",
 } = Astro.props;
 
 // Entity layer: disambiguates "troniti" from the tronity/tronit name-collision
@@ -67,7 +67,6 @@ const websiteSchema = {
     <script is:inline type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
     {isProd && (
-      <!-- Google Analytics (troniti.com) -->
       <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-0WNNZYSDS3"></script>
       <script is:inline>
         window.dataLayer = window.dataLayer || [];

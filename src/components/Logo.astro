@@ -9,6 +9,9 @@ const { size = "md", href = "/", class: className = "" } = Astro.props;
 
 const mark = { sm: "h-6 w-6", md: "h-8 w-8", lg: "h-11 w-11" };
 const text = { sm: "text-lg", md: "text-xl", lg: "text-2xl" };
+// The mark: tilted orbit — brand-orange core, two orbiting bodies (white +
+// orange). Palette per design/brand.md; keep public/favicon.svg and the
+// cabinet's Logo component in sync.
 ---
 
 <a
@@ -16,8 +19,6 @@ const text = { sm: "text-lg", md: "text-xl", lg: "text-2xl" };
   class={`inline-flex items-center gap-2 font-semibold tracking-tight ${text[size]} ${className}`}
 >
   <svg viewBox="0 0 100 100" class={mark[size]} fill="none" aria-hidden="true">
-    <!-- troniti mark — tilted orbit: brand-orange core, two orbiting bodies (white + orange).
-         Palette per design/brand.md; keep public/favicon.svg and the cabinet's Logo in sync. -->
     <g transform="rotate(-20 50 50)">
       <ellipse cx="50" cy="50" rx="34" ry="16" fill="none" stroke="#52525b" stroke-width="5" />
       <circle cx="50" cy="50" r="8.5" fill="#f7941d" />
