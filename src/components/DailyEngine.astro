@@ -1,0 +1,65 @@
+---
+// Screen 6 of the question ladder: "what do you actually do all day?" The
+// operator made tangible — a sample daily-cycle log in the house terminal
+// style. Amounts are sized for a ~100k TRX wallet; the real cycle fires at
+// 16:00 UTC from server timers.
+const lines = [
+  { t: "16:00:01", text: "checking permission", value: "5 ops · exact match", ok: true },
+  { t: "16:00:02", text: "claim voting rewards", value: "+9.2 TRX", income: true },
+  { t: "16:00:04", text: "restake → energy", value: "9 TRX" },
+  { t: "16:00:05", text: "re-vote", value: "confirmed", ok: true },
+  { t: "16:00:07", text: "reclaim expired delegation", value: "+512k energy" },
+  { t: "16:00:09", text: "fill energy order #48112", value: "500k · 3 days" },
+  { t: "16:00:41", text: "payout verified on-chain", value: "+50.7 TRX", income: true, ok: true },
+];
+---
+
+<section class="border-t border-border px-6 py-20 sm:py-24">
+  <div class="mx-auto max-w-3xl">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
+        The engine runs <span class="text-accent">daily</span>
+      </h2>
+      <p class="mt-4 text-lg text-text-muted">
+        The full loop, every day — paid with renewable bandwidth, never your TRX.
+      </p>
+    </div>
+
+    <!-- one sample run, as a log -->
+    <div class="mx-auto mt-12 max-w-xl overflow-hidden rounded-xl border border-border bg-bg-card">
+      <div class="flex items-center gap-1.5 border-b border-border px-4 py-2.5">
+        <span class="h-2.5 w-2.5 rounded-full bg-negative/60"></span>
+        <span class="h-2.5 w-2.5 rounded-full bg-warning/60"></span>
+        <span class="h-2.5 w-2.5 rounded-full bg-live/60"></span>
+        <span class="mono ml-2 text-xs text-text-muted">daily cycle — sample run</span>
+      </div>
+      <div class="mono p-5 text-xs sm:p-6 sm:text-sm">
+        <div>
+          <span class="text-live">$</span> troniti-cycle <span class="text-text-muted">--broadcast</span>
+        </div>
+        {
+          lines.map((l) => (
+            <div class="mt-2 flex items-baseline justify-between gap-4">
+              <span class="min-w-0">
+                <span class="text-text-muted/60">[{l.t}]</span>
+                <span class="ml-2 text-text-soft">{l.text}</span>
+              </span>
+              <span class="shrink-0">
+                <span class:list={[l.income ? "font-bold text-accent" : "text-text-muted"]}>{l.value}</span>
+                {l.ok && <span class="ml-1.5 text-live">✓</span>}
+              </span>
+            </div>
+          ))
+        }
+        <div class="mt-3 border-t border-border pt-3 text-text-muted">
+          run complete · next run in 24h <span class="text-live">▮</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="mx-auto mt-8 max-w-xl text-center text-sm text-text-muted">
+      Sample run for a ~100k TRX wallet. Every action is a public on-chain transaction —
+      auditable end to end.
+    </p>
+  </div>
+</section>

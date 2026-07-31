@@ -12,6 +12,7 @@
   --color-border: #27272a;      /* zinc-800 — 1px card borders */
   --color-ink: #0d0f14;         /* = bg; named for text ON brand fills (never white there) */
   --color-text: #f4f4f5;        /* zinc-100 */
+  --color-text-soft: #d4d4d8;   /* zinc-300 — terminal body text (brand.md) */
   --color-text-muted: #a1a1aa;  /* zinc-400 */
 
   /* brand — warm orange = identity (never a state); on-brand text is ink, never white */
