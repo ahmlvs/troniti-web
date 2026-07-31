@@ -9,7 +9,6 @@
 const deal = {
   delegationTx: "a0cab4f26638b71133c4520b91cf170f945d65183d06d1098127b00559b6a421",
   payoutTx: "35b511ac4acc0d2363913a5d0c0aab8d5c8f09f86a7e4dea028c7990f740673e",
-  payout: "+9.15 TRX",
 };
 const short = (tx: string) => `${tx.slice(0, 6)}…${tx.slice(-4)}`;
 
@@ -61,7 +60,7 @@ const timeline = [
             class="mono text-sm text-accent transition-colors hover:text-accent-hover"
             title={deal.payoutTx}
           >
-            payout {deal.payout} · {short(deal.payoutTx)} ↗
+            payout · {short(deal.payoutTx)} ↗
           </a>
         </div>
       </div>
