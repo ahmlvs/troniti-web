@@ -1,16 +1,41 @@
 ---
+// Screen 2 of the question ladder: "is this about me?" Three holder-voiced
+// pains; each one is a promise the page resolves later (№1 → yield screen,
+// №2 → how-it-works/engine, №3 → trust model).
+const pains = [
+  {
+    quote: "I stake, I vote, I claim — and it's still just ~3%.",
+    note: "Voting rewards are real — but they're the smallest part of what staked TRX can produce.",
+  },
+  {
+    quote: "Energy rental pays more — but who has time for order books, delegation locks and daily claims?",
+    note: "Capturing the full yield is a daily operations job.",
+  },
+  {
+    quote: "I'm not handing my TRX to a ‘managed yield’ service.",
+    note: "Right — most of them want withdrawal rights. That's the part we built differently.",
+  },
+];
 ---
 
 <section class="border-t border-border px-6 py-20 sm:py-24">
-  <div class="mx-auto max-w-3xl text-center">
-    <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
-      Idle TRX leaves yield on the table
-    </h2>
-    <p class="mx-auto mt-5 max-w-2xl text-lg text-text-muted">
-      Most stakers vote and stop there — earning ~3% while the bigger opportunity goes
-      untouched. Capturing the full yield means continuously claiming rewards, restaking,
-      re-voting, and renting out idle energy: fiddly, 24/7 work with 24-hour claim limits,
-      bandwidth budgeting, and 30-day delegation cycles. Almost nobody does it well.
-    </p>
+  <div class="mx-auto max-w-5xl">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
+        Your stake earns <span class="mono">~3%</span>.
+        <span class="text-accent">It could earn <span class="mono">~15%</span>.</span>
+      </h2>
+    </div>
+
+    <div class="mt-14 grid gap-6 md:grid-cols-3">
+      {
+        pains.map((p) => (
+          <div class="rounded-xl border border-border bg-bg-card p-6">
+            <p class="font-medium leading-snug text-text">“{p.quote}”</p>
+            <p class="mt-3 text-sm leading-relaxed text-text-muted">{p.note}</p>
+          </div>
+        ))
+      }
+    </div>
   </div>
 </section>
