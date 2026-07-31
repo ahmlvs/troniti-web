@@ -1,0 +1,68 @@
+---
+import { APP_URL } from "../config";
+
+// Screen 7 of the question ladder: "what do I earn, what does it cost?" One
+// ledger card runs the 100k-TRX example on both sides; the fee is the only
+// fixed number. Replaces the old Yield section (duplicated screen 3's split)
+// and the Pricing section (merged here). Figures: 3.3% + 11.9% ≈ 15.2%, fee
+// 2%/yr flat.
+---
+
+<section class="border-t border-border px-6 py-20 sm:py-24">
+  <div class="mx-auto max-w-3xl">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
+        The math on <span class="mono">100,000 TRX</span>
+      </h2>
+      <p class="mt-4 text-lg text-text-muted">
+        Flat <span class="mono">2%</span>/yr on managed capital. No profit share — you keep
+        the yield.
+      </p>
+    </div>
+
+    <!-- the ledger: earn side, cost side, net -->
+    <div class="mx-auto mt-12 max-w-xl overflow-hidden rounded-xl border border-border bg-bg-card">
+      <div class="mono border-b border-border px-5 py-3 text-xs tracking-wide text-text-muted sm:px-6">
+        example · 100,000 TRX staked
+      </div>
+      <div class="mono p-5 text-sm sm:p-6 sm:text-base">
+        <div class="flex items-baseline justify-between gap-4">
+          <span class="text-text-soft">voting rewards</span>
+          <span>~3,300 <span class="text-text-muted">TRX/yr</span></span>
+        </div>
+        <div class="mt-2 flex items-baseline justify-between gap-4">
+          <span class="text-text-soft">energy rental</span>
+          <span>~11,900 <span class="text-text-muted">TRX/yr</span></span>
+        </div>
+        <div class="mt-4 flex items-baseline justify-between gap-4 border-t border-border pt-3">
+          <span>the model earns</span>
+          <span class="font-bold">~15,200 <span class="font-normal text-text-muted">TRX/yr</span></span>
+        </div>
+        <div class="mt-2 flex items-baseline justify-between gap-4">
+          <span class="text-text-soft">troniti flat fee (2%)</span>
+          <span class="text-text-muted">−2,000 TRX/yr</span>
+        </div>
+        <div class="mt-4 flex items-baseline justify-between gap-4 border-t border-border pt-3 font-bold">
+          <span>yours to keep</span>
+          <span class="text-accent">~13,200 <span class="font-normal">TRX/yr</span></span>
+        </div>
+      </div>
+    </div>
+
+    <p class="mx-auto mt-8 max-w-xl text-center text-sm text-text-muted">
+      Prepaid credit, drawn down as it accrues — no lockup, stop anytime. The yield floats
+      with the market; the fee is the only fixed number.
+    </p>
+
+    <!-- mid-page beat #2: after the money math -->
+    <div class="mt-10 text-center">
+      <a
+        href={APP_URL}
+        data-open-app="math"
+        class="inline-block rounded-lg bg-accent px-6 py-3 font-semibold text-ink transition-colors hover:bg-accent-hover"
+      >
+        Connect wallet
+      </a>
+    </div>
+  </div>
+</section>
