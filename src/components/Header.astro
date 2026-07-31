@@ -5,7 +5,15 @@ import { APP_URL } from "../config";
 
 <header class="sticky top-0 z-50 border-b border-border/60 bg-bg/80 backdrop-blur-md">
   <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-    <Logo size="md" />
+    <div class="flex items-center gap-3">
+      <Logo size="md" />
+      <span
+        class="mono hidden items-center gap-1.5 rounded-full border border-border px-2.5 py-1 text-xs text-text-muted sm:inline-flex"
+      >
+        <span class="inline-block h-1.5 w-1.5 rounded-full bg-live"></span>
+        live on mainnet
+      </span>
+    </div>
     <div class="flex items-center gap-6 text-sm text-text-muted">
       <a href="#how" class="hidden transition-colors hover:text-text sm:inline">How it works</a>
       <a href="#trust" class="hidden transition-colors hover:text-text sm:inline">Trust model</a>
