@@ -1,0 +1,99 @@
+---
+// Screen 3 of the question ladder: "why ~15% — and not a scam?" Turns the
+// number into network mechanics: staked TRX produces votes AND energy; USDT
+// transfers burn energy, so idle energy rents out. Figures must stay in sync
+// with the Yield/math section (~3.3 + ~11.9 ≈ ~15).
+const notes = [
+  {
+    title: "Energy pays for USDT",
+    body: "Every TRC-20 transfer burns energy — and TRON moves more USDT than any other chain. Demand is constant.",
+  },
+  {
+    title: "Idle energy is wasted energy",
+    body: "Stake regenerates energy daily; unused, it simply expires. Renting it out turns a perishable byproduct into TRX income.",
+  },
+  {
+    title: "The yield is other people's fees",
+    body: "No token printing, no deposits pooled — renters pay for a resource they burn. That's why the model holds.",
+  },
+];
+---
+
+<section class="border-t border-border px-6 py-20 sm:py-24">
+  <div class="mx-auto max-w-5xl">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
+        Staked TRX earns <span class="text-accent">twice</span>
+      </h2>
+      <p class="mt-4 text-lg text-text-muted">
+        Votes are the small stream. Energy is the big one — and almost everyone wastes it.
+      </p>
+    </div>
+
+    <!-- the mechanism as a flow: source → two streams → destination -->
+    <div class="mt-14 grid items-stretch gap-4 md:grid-cols-[1fr_2rem_1.35fr_2rem_1fr]">
+      <!-- source -->
+      <div class="flex flex-col justify-center rounded-xl border border-border bg-bg-card p-6 md:row-span-2">
+        <div class="mono text-xs tracking-wide text-text-muted">you hold</div>
+        <div class="mt-1 text-lg font-semibold">Staked TRX</div>
+        <p class="mt-2 text-sm leading-relaxed text-text-muted">
+          Stake 2.0, in your own wallet. It produces two things at once: votes and energy.
+        </p>
+      </div>
+
+      <div class="mono hidden items-center justify-center text-text-muted md:flex md:row-span-2">→</div>
+
+      <!-- stream 1: votes -->
+      <div class="rounded-xl border border-border bg-bg-card p-6">
+        <div class="flex items-baseline justify-between gap-3">
+          <div class="mono text-xs tracking-wide text-text-muted">stream 1 · votes</div>
+          <div class="mono font-bold">~3.3%</div>
+        </div>
+        <div class="mt-1 font-semibold">Voting rewards</div>
+        <p class="mt-2 text-sm leading-relaxed text-text-muted">
+          Your votes back a validator — the network pays rewards for it.
+        </p>
+      </div>
+
+      <!-- stream 2: energy (explicit cell — auto-placement breaks around row-spans) -->
+      <div class="rounded-xl border border-accent/40 bg-bg-card p-6 md:col-start-3 md:row-start-2">
+        <div class="flex items-baseline justify-between gap-3">
+          <div class="mono text-xs tracking-wide text-text-muted">stream 2 · energy</div>
+          <div class="mono font-bold text-accent">~11.9%</div>
+        </div>
+        <div class="mt-1 font-semibold">Energy rental</div>
+        <p class="mt-2 text-sm leading-relaxed text-text-muted">
+          Your idle energy is rented by businesses moving USDT — they burn it, you get paid.
+        </p>
+      </div>
+
+      <div class="mono hidden items-center justify-center text-text-muted md:flex md:row-span-2">→</div>
+
+      <!-- destination -->
+      <div class="flex flex-col justify-center rounded-xl border border-border bg-bg/40 p-6 md:row-span-2">
+        <div class="mono text-xs tracking-wide text-text-muted">destination</div>
+        <div class="mt-1 text-lg font-semibold">Your wallet</div>
+        <p class="mt-2 text-sm leading-relaxed text-text-muted">
+          Both streams land directly in your wallet — never in ours.
+        </p>
+        <div class="mono mt-3 text-2xl font-bold text-accent">~15%</div>
+      </div>
+    </div>
+
+    <!-- why the model holds -->
+    <div class="mt-10 grid gap-6 md:grid-cols-3">
+      {
+        notes.map((n) => (
+          <div class="px-1">
+            <div class="text-sm font-semibold">{n.title}</div>
+            <p class="mt-1.5 text-sm leading-relaxed text-text-muted">{n.body}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="mt-10 text-center text-xs text-text-muted">
+      Rates float with the energy market — ~15% is the live model, not a guarantee.
+    </p>
+  </div>
+</section>
