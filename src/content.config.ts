@@ -1,5 +1,7 @@
 import { defineCollection } from "astro:content";
-import { z } from "astro:schema";
+// z via astro/zod: the astro:content re-export is deprecated, and astro:schema
+// trips more astro-check hints on this Astro version — this variant checks clean.
+import { z } from "astro/zod";
 import { glob } from "astro/loaders";
 
 // /learn — a library of evergreen explainers (not a blog: "updated", no cadence).
