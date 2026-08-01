@@ -1,5 +1,5 @@
 import { defineCollection } from "astro:content";
-import { z } from "astro/zod";
+import { z } from "astro:schema";
 import { glob } from "astro/loaders";
 
 // /learn — a library of evergreen explainers (not a blog: "updated", no cadence).
