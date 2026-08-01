@@ -34,7 +34,8 @@ processors, merchants, bots. Not speculation: operating costs.
 
 ## Where energy comes from
 
-Under Stake 2.0, staking TRX gives you two things at once:
+Under [Stake 2.0](/learn/tron-stake-2-0-explained/), staking TRX gives you two things
+at once:
 
 - **Votes** — you back a validator (a super representative), and the network pays
   voting rewards for it, around 3–4% a year.
@@ -104,3 +105,6 @@ goes back to earning plain voting rewards.
 The real thing to check is *what you sign*: a proper operator permission allows exactly
 five operations — stake, vote, claim, delegate, reclaim — and nothing else. No
 transfers, no unstaking, no account changes. [Here's ours, verifiable on-chain.](/#trust)
+
+The longer version, risk by risk:
+[Is renting out TRON energy safe?](/learn/is-renting-out-tron-energy-safe/)
