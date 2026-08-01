@@ -1,0 +1,55 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+// The library index: evergreen explainers, newest-updated first.
+const posts = (await getCollection("learn")).sort(
+  (a, b) => b.data.updated.valueOf() - a.data.updated.valueOf(),
+);
+
+const readingTime = (body: string) =>
+  Math.max(1, Math.round(body.split(/\s+/).length / 200));
+
+const fmt = (d: Date) => d.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+---
+
+<BaseLayout
+  title="Learn — how TRON yield actually works · troniti"
+  description="Evergreen explainers on TRON staking, energy rental and the non-custodial permission model — written by the people running the engine."
+>
+  <Header />
+  <main class="mx-auto max-w-3xl px-6 py-16 sm:py-20">
+    <p class="mono text-sm tracking-wide text-text-muted">
+      <span class="text-live">$</span> troniti/learn
+    </p>
+    <h1 class="mt-4 text-balance text-4xl font-bold tracking-tight sm:text-5xl">
+      How TRON yield <span class="text-accent">actually</span> works
+    </h1>
+    <p class="mt-4 max-w-xl text-lg text-text-muted">
+      Evergreen explainers — the mechanics behind staking, energy rental and the
+      permission model. Written by the people running the engine.
+    </p>
+
+    <div class="mt-12 flex flex-col gap-4">
+      {
+        posts.map((p) => (
+          <a
+            href={`/learn/${p.id}/`}
+            class="group rounded-xl border border-border bg-bg-card p-6 transition-colors hover:border-text-muted"
+          >
+            <h2 class="text-lg font-semibold transition-colors group-hover:text-accent">
+              {p.data.title}
+            </h2>
+            <p class="mt-2 text-sm leading-relaxed text-text-muted">{p.data.description}</p>
+            <p class="mono mt-4 text-xs text-text-muted">
+              {readingTime(p.body ?? "")} min read · updated {fmt(p.data.updated)}
+            </p>
+          </a>
+        ))
+      }
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

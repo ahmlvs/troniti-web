@@ -50,3 +50,106 @@ html {
 section[id] {
   scroll-margin-top: 5.5rem;
 }
+
+/* /learn article prose — markdown output styled with house tokens */
+.article {
+  color: var(--color-text-soft);
+  line-height: 1.75;
+}
+.article h2 {
+  margin: 2.5rem 0 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--color-text);
+}
+.article h3 {
+  margin: 2rem 0 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.article p {
+  margin: 1rem 0;
+}
+.article a {
+  color: var(--color-accent);
+}
+.article a:hover {
+  color: var(--color-accent-hover);
+}
+.article strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+.article ul,
+.article ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+.article ul {
+  list-style: disc;
+}
+.article ol {
+  list-style: decimal;
+}
+.article li {
+  margin: 0.375rem 0;
+}
+.article li::marker {
+  color: var(--color-text-muted);
+}
+.article code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.375rem;
+}
+.article pre {
+  margin: 1.25rem 0;
+  padding: 1rem 1.25rem;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  overflow-x: auto;
+}
+.article pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.875rem;
+}
+.article blockquote {
+  margin: 1.25rem 0;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  border-left: 2px solid var(--color-accent);
+  color: var(--color-text-muted);
+}
+.article hr {
+  margin: 2.5rem 0;
+  border-color: var(--color-border);
+}
+.article table {
+  width: 100%;
+  margin: 1.25rem 0;
+  font-size: 0.9rem;
+  border-collapse: collapse;
+}
+.article th {
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+}
+.article td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.article table code,
+.article td,
+.article th {
+  font-variant-numeric: tabular-nums;
+}
