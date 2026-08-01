@@ -67,6 +67,39 @@ const breadcrumbSchema = {
       </a>
     </p>
 
+    {
+      post.data.figure && (
+        <div class="mt-10 overflow-hidden rounded-xl border border-border bg-bg-card">
+          <div class="flex items-center gap-1.5 border-b border-border px-4 py-2.5">
+            <span class="h-2.5 w-2.5 rounded-full bg-negative/60" />
+            <span class="h-2.5 w-2.5 rounded-full bg-warning/60" />
+            <span class="h-2.5 w-2.5 rounded-full bg-live/60" />
+            <span class="mono ml-2 text-xs text-text-muted">{post.data.figure.title}</span>
+          </div>
+          <div class="mono p-5 text-sm">
+            {post.data.figure.lines.map((line) => (
+              <div class="mt-1.5 flex items-baseline justify-between gap-4 first:mt-0">
+                <span class="text-text-soft">{line.l}</span>
+                {line.r && (
+                  <span
+                    class:list={[
+                      "shrink-0",
+                      line.tone === "ok" && "text-live",
+                      line.tone === "bad" && "text-negative",
+                      line.tone === "accent" && "font-bold text-accent",
+                      !line.tone && "text-text-muted",
+                    ]}
+                  >
+                    {line.r}
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
     <article class="article mt-10">
       <Content />
     </article>
