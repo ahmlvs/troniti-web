@@ -12,6 +12,15 @@ const posts = (await getCollection("learn")).sort(
 const readingTime = (body: string) =>
   Math.max(1, Math.round(body.split(/\s+/).length / 200));
 
+// Muted tag tones — a two-color semantic map, not a rainbow: product-domain
+// topics go brand-orange, security goes trust-green, foundations stay neutral.
+const tagTone: Record<string, string> = {
+  energy: "border-accent/25 bg-accent/10 text-accent/80",
+  markets: "border-accent/25 bg-accent/10 text-accent/80",
+  security: "border-live/25 bg-live/10 text-live/80",
+};
+const chipTone = (t: string) => tagTone[t] ?? "border-border/70 bg-bg/50 text-text-muted";
+
 const fmt = (d: Date) => d.toLocaleDateString("en-US", { month: "short", year: "numeric" });
 ---
 
@@ -54,7 +63,7 @@ const fmt = (d: Date) => d.toLocaleDateString("en-US", { month: "short", year: "
                 <span class="text-text-muted/50">·</span>
                 <span>updated {fmt(p.data.updated)}</span>
                 {p.data.tags.map((t) => (
-                  <span class="rounded border border-border/70 bg-bg/50 px-1.5 py-0.5 text-[11px] leading-none">
+                  <span class={`rounded border px-1.5 py-0.5 text-[11px] leading-none ${chipTone(t)}`}>
                     {t}
                   </span>
                 ))}
