@@ -47,6 +47,10 @@ exercise: *read the list*.
    - **Which operations are allowed** — the decoded names, one by one.
    - **Whether anything extra snuck in** — see below.
 
+Want to practice on a live one?
+[Here's a real account running the exact five-op grant](https://tronscan.org/address/TTYhq9poiQzMsAuLz739SaKrwnmjiUuWPG/permissions)
+— open it and read the list against this article.
+
 ## What a yield operator needs — and nothing else
 
 Running stake, votes and energy rental requires exactly five operations:
