@@ -120,3 +120,14 @@ const breadcrumbSchema = {
   </main>
   <Footer />
 </BaseLayout>
+
+<script is:inline define:vars={{ slug: post.id }}>
+  // Mark this article read for the /learn index (this browser only).
+  try {
+    const read = new Set(JSON.parse(localStorage.getItem('learn-read') || '[]'));
+    read.add(slug);
+    localStorage.setItem('learn-read', JSON.stringify([...read]));
+  } catch {
+    /* private mode etc. — nothing to do */
+  }
+</script>

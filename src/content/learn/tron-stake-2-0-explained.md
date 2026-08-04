@@ -3,6 +3,7 @@ title: "TRON Stake 2.0: votes, energy, bandwidth — explained"
 description: "What staking TRX actually gives you: votes and voting rewards, a daily resource (energy or bandwidth), and a 14-day exit — all in your own wallet."
 updated: 2026-08-01
 tags: ["basics", "staking"]
+order: 1
 figure:
   title: "stake 2.0 — what you get"
   lines:

@@ -3,6 +3,7 @@ title: "How TRON energy rental works — and why it pays ~12%"
 description: "Every USDT transfer on TRON burns energy. Staked TRX produces it daily, idle energy expires — and renters pay real TRX for it. The mechanics, the market, the math."
 updated: 2026-08-01
 tags: ["energy", "basics"]
+order: 2
 figure:
   title: "energy → income"
   lines:

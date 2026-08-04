@@ -3,6 +3,7 @@ title: "How to verify what a TRON permission can do"
 description: "Before granting anyone an active permission, read the grant itself: keys, threshold, the operations list — what to check on tronscan, and the red flags."
 updated: 2026-08-04
 tags: ["security", "basics"]
+order: 5
 figure:
   title: "read the grant, not the promise"
   lines:

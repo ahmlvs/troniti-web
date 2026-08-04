@@ -13,6 +13,8 @@ const learn = defineCollection({
     description: z.string(),
     updated: z.coerce.date(),
     tags: z.array(z.string()).default([]),
+    // Curated reading order for the library index (a path, not a feed).
+    order: z.number().default(999),
     // Optional terminal vignette rendered above the article — the skimmer's
     // 3-second version of the piece. tone colors the right column:
     // ok = live green, bad = negative red, accent = brand orange.

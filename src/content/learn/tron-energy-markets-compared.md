@@ -3,6 +3,7 @@ title: "TRON energy markets compared: what sellers actually net"
 description: "TronSave, TronEnergize and TEM quote gross prices — sellers net 70–75% of them. Measured shares, flat fees, minimum fills, and how payouts actually arrive."
 updated: 2026-08-04
 tags: ["markets", "energy"]
+order: 3
 figure:
   title: "what sellers actually keep"
   lines:

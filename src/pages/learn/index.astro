@@ -4,9 +4,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 
-// The library index: evergreen explainers, newest-updated first.
+// The library index: a curated reading path (order field), not a feed.
 const posts = (await getCollection("learn")).sort(
-  (a, b) => b.data.updated.valueOf() - a.data.updated.valueOf(),
+  (a, b) => a.data.order - b.data.order,
 );
 
 const readingTime = (body: string) =>
@@ -34,18 +34,33 @@ const fmt = (d: Date) => d.toLocaleDateString("en-US", { month: "short", year: "
 
     <div class="mt-12 flex flex-col gap-4">
       {
-        posts.map((p) => (
+        posts.map((p, i) => (
           <a
             href={`/learn/${p.id}/`}
-            class="group rounded-xl border border-border bg-bg-card p-6 transition-colors hover:border-text-muted"
+            data-learn-card
+            data-slug={p.id}
+            class="group flex gap-5 rounded-xl border border-border bg-bg-card p-6 transition-colors hover:border-text-muted"
           >
-            <h2 class="text-lg font-semibold transition-colors group-hover:text-accent">
-              {p.data.title}
-            </h2>
-            <p class="mt-2 text-sm leading-relaxed text-text-muted">{p.data.description}</p>
-            <p class="mono mt-4 text-xs text-text-muted">
-              {readingTime(p.body ?? "")} min read · updated {fmt(p.data.updated)}
-            </p>
+            <span class="mono shrink-0 pt-0.5 text-lg font-bold text-accent/80">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <div class="min-w-0">
+              <h2 class="learn-title text-lg font-semibold transition-colors group-hover:text-accent">
+                {p.data.title}
+              </h2>
+              <p class="mt-2 text-sm leading-relaxed text-text-muted">{p.data.description}</p>
+              <p class="mono mt-4 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-xs text-text-muted">
+                <span>{readingTime(p.body ?? "")} min read</span>
+                <span class="text-text-muted/50">·</span>
+                <span>updated {fmt(p.data.updated)}</span>
+                {p.data.tags.map((t) => (
+                  <span class="rounded border border-border/70 bg-bg/50 px-1.5 py-0.5 text-[11px] leading-none">
+                    {t}
+                  </span>
+                ))}
+                <span class="read-mark hidden text-live">✓ read</span>
+              </p>
+            </div>
           </a>
         ))
       }
@@ -53,3 +68,16 @@ const fmt = (d: Date) => d.toLocaleDateString("en-US", { month: "short", year: "
   </main>
   <Footer />
 </BaseLayout>
+
+<script is:inline>
+  // Read-state lives in this browser only (localStorage) — no accounts, no
+  // tracking; the article page writes the slug, the index reveals the check.
+  try {
+    const read = new Set(JSON.parse(localStorage.getItem('learn-read') || '[]'));
+    document.querySelectorAll('[data-learn-card]').forEach((card) => {
+      if (read.has(card.dataset.slug)) card.classList.add('is-read');
+    });
+  } catch {
+    /* private mode etc. — the index just shows no checkmarks */
+  }
+</script>

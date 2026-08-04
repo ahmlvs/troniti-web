@@ -46,6 +46,14 @@ html {
   scroll-behavior: smooth;
 }
 
+/* /learn read-state — set client-side from localStorage on the index */
+.is-read .learn-title {
+  color: var(--color-text-muted);
+}
+.is-read .read-mark {
+  display: inline;
+}
+
 /* anchor jumps must clear the sticky header */
 section[id] {
   scroll-margin-top: 5.5rem;
