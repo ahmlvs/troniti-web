@@ -80,7 +80,8 @@ the shape is stable:
 One honesty note most listings skip: the prices you see on market order books are
 **gross**. Markets keep a share of every deal — typically 25–30% — so the real income
 is the *net* number. When we quote ~11.9%, that's net of market cuts, based on
-measured fills, not book prices.
+measured fills, not book prices. The market-by-market shares, measured:
+[TRON energy markets compared](/learn/tron-energy-markets-compared/).
 
 ## The catch: it's a daily operations job
 
