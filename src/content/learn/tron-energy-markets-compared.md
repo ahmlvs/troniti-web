@@ -3,7 +3,7 @@ title: "TRON energy markets compared: what sellers actually net"
 description: "TronSave, TronEnergize and TEM quote gross prices — sellers net 70–75% of them. Measured shares, flat fees, minimum fills, and how payouts actually arrive."
 updated: 2026-08-04
 tags: ["markets", "energy"]
-order: 3
+order: 4
 figure:
   title: "what sellers actually keep"
   lines:
@@ -15,7 +15,8 @@ figure:
 ---
 
 Energy market order books show one number. Your wallet receives another. The gap is
-the market's cut — and no market prints it next to the price.
+the market's cut — and no market prints it next to the price. (Renting out, energy
+lending — venues use both words; the mechanics and the cuts are the same.)
 
 The shares below aren't guesses or terms-of-service archaeology: they're measured on
 our own production fills through mid-2026, and re-measured continuously, because we

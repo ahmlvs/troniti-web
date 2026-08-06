@@ -3,7 +3,7 @@ title: "Is renting out TRON energy safe?"
 description: "What actually leaves your wallet (nothing), what a delegation can and can't do, the 30-day cap, and how to vet anyone who operates for you."
 updated: 2026-08-01
 tags: ["safety", "energy"]
-order: 4
+order: 6
 figure:
   title: "risk map"
   lines:
