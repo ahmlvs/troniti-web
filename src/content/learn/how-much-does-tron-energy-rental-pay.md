@@ -46,6 +46,17 @@ taken — which trims the effective rate below the model. From ~100,000 TRX ever
 is in reach and the model rate applies. At whale sizes the question flips to demand
 depth: the energy sells, just across more orders and venues.
 
+## The compounding bonus
+
+The table shows simple-rate numbers, deliberately — the rate itself floats more than
+compounding adds, and we'd rather understate. But the loop does compound: the engine
+restakes the wallet's whole liquid balance daily — claimed voting rewards and landed
+rental payouts alike — so yesterday's income starts earning today. Run at the model
+rate, daily compounding lifts ~15.2% nominal to **~16.4% effective**; at 1,000,000 TRX
+that's roughly **+12,000 TRX a year** on top of the table. It's the quiet reward for a
+discipline that never skips a day — which is exactly what breaks first when the loop
+is run by hand.
+
 ## What moves the rate
 
 Energy prices float like any market: up when USDT traffic runs hot and demand for
