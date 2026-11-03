@@ -67,14 +67,17 @@ node -e "require('sharp')('public/images/og-image.svg',{density:200}).resize(120
 
 ## Domain & deploy
 
-- Deploys to **GitHub Pages via GitHub Actions** ([.github/workflows/deploy.yml](.github/workflows/deploy.yml)),
-  auto-triggered on push to `main`. The job builds and publishes `dist/`. Pages source must be
-  "GitHub Actions" in repo settings.
-- DNS is on **Cloudflare**: apex `troniti.com` → 4 GitHub Pages A records (185.199.108–111.153),
-  `www` → CNAME `ahmlvs.github.io`; both **DNS only (grey cloud)** so GitHub can issue the cert.
-  GitHub auto-redirects `www` → apex because the custom domain is the apex.
-- The custom domain is bound by [public/CNAME](public/CNAME) (`troniti.com`), copied into `dist/` at
-  build — this is what GitHub Pages reads. A domain can be claimed by only one repo.
+- Deploys to **Cloudflare Pages** (project `troniti-web`, connected to this repo), built on push to
+  `main`: `npm run build` → `dist/`, Node from [.nvmrc](.nvmrc). Moved off GitHub Pages on
+  2026-11-03, because GitHub Pages cannot send response headers and the site needs HSTS:
+  [public/_headers](public/_headers) sets it, with the basic security headers.
+- DNS is on **Cloudflare**: apex `troniti.com` is the Pages project's custom domain (a proxied
+  CNAME to `troniti-web.pages.dev`, made by Pages). `www` is a proxied CNAME to the apex, and a
+  Redirect Rule sends it there with 301, path and query string kept
+  (`http*://www.troniti.com/*` → `https://troniti.com/${2}`).
+- troniti.com sends no mail and says so: SPF `v=spf1 -all`, DMARC `p=reject` (2026-11-03). Add a
+  mail service and both records change with it. The domain stays verified in GitHub's Pages
+  settings, so no other GitHub account can publish on it.
 - `site:` in [astro.config.mjs](astro.config.mjs) drives sitemap + canonical generation. SEO-critical
   absolute URLs (og:image, canonical in `BaseLayout.astro`, sitemap in `public/robots.txt`) are
   hardcoded to the domain — update all of them together if the domain ever changes.

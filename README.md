@@ -29,9 +29,10 @@ npm run astro check  # type-check .astro files
 
 ## Deploy
 
-GitHub Pages via GitHub Actions — auto-deploys on push to `main`.
-Custom domain `troniti.com` is bound via [public/CNAME](public/CNAME); keep `site:` in
-[astro.config.mjs](astro.config.mjs) in sync with it.
+Cloudflare Pages (project `troniti-web`) — builds and deploys on push to `main`: `npm run build`,
+output `dist/`, Node from [.nvmrc](.nvmrc). Response headers, HSTS among them, are in
+[public/_headers](public/_headers). Keep `site:` in [astro.config.mjs](astro.config.mjs) in sync
+with the domain.
 
 ## Structure
 
